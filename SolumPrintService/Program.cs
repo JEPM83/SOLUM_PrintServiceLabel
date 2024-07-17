@@ -16,7 +16,7 @@ namespace SolumPrintService
             model.User_print = "";
             try
             {
-                Console.WriteLine("Iniciando servicion de impresion!.");
+                Console.WriteLine("Iniciando servicio de impresion!.");
 
                 obj.ZebraPrint(obj.GetPrintData(model));
                 Console.WriteLine("Termino!.");

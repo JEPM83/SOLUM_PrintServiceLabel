@@ -41,7 +41,7 @@ namespace SolumInfraestructure.Domain.DBContext
                         printDetail.Itemname = sqlReader["ITEMNAME"].ToString();
                         printDetail.Suppliername = sqlReader["SUPPLIERNAME"].ToString();
                         printDetail.Batchnum = String.IsNullOrEmpty(sqlReader["BATCHNUM"].ToString()) ? String.IsNullOrEmpty(sqlReader["SERIALNUMBER"].ToString()) ? "" : sqlReader["SERIALNUMBER"].ToString() : sqlReader["BATCHNUM"].ToString();
-                        printDetail.Expdate = String.IsNullOrEmpty(sqlReader["EXPDATE"].ToString()) ? DateTime.Now : DateTime.Parse(sqlReader["EXPDATE"].ToString());
+                        printDetail.Expdate = String.IsNullOrEmpty(sqlReader["EXPDATE"].ToString()) ? "" : (sqlReader["EXPDATE"].ToString());
                         printDetail.Barcode = sqlReader["BARCODE"].ToString();
                         printDetail.Sprint = sqlReader["SPRINT"].ToString();
                         printDetail.User_print = sqlReader["USER_PRINT"].ToString();
@@ -49,6 +49,7 @@ namespace SolumInfraestructure.Domain.DBContext
                         printDetail.Printerport = int.Parse(sqlReader["PRINTERPORT"].ToString());
                         printDetail.Quantity = Decimal.Parse(sqlReader["QUANTITY"].ToString());
                         printDetail.Uxc = Decimal.Parse(sqlReader["UXC"].ToString());
+                        printDetail.Dateauditcreate = DateTime.Parse(sqlReader["DATEAUDIT_CREATE"].ToString());
                         //
                         printListDetail.Add(printDetail);
                     }

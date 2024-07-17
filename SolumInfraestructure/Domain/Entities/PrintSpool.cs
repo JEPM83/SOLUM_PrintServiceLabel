@@ -18,7 +18,7 @@ namespace SolumInfraestructure.Domain.Entities
         private string _suppliername;
         private string _batchnum;
         private string _serialnum;
-        private DateTime _expdate;
+        private string _expdate;
         private string _barcode;
         private string _sprint;
         private string _user_print;
@@ -39,7 +39,7 @@ namespace SolumInfraestructure.Domain.Entities
         public string Suppliername { get => _suppliername; set => _suppliername = value; }
         public string Batchnum { get => _batchnum; set => _batchnum = value; }
         public string Serialnum { get => _serialnum; set => _serialnum = value; }
-        public DateTime Expdate { get => _expdate; set => _expdate = value; }
+        public string? Expdate { get => _expdate; set => _expdate = value; }
         public string Barcode { get => _barcode; set => _barcode = value; }
         public string Sprint { get => _sprint; set => _sprint = value; }
         public string User_print { get => _user_print; set => _user_print = value; }

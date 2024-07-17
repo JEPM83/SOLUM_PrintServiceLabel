@@ -100,7 +100,7 @@ namespace SolumInfraestructure.Service
             int cont = 1;
             uxc = Decimal.ToInt32(obj.Uxc);
             cont = Decimal.ToInt32(obj.Quantity);
-            string[] strZPL = new string[33];
+            string[] strZPL = new string[37];
             strZPL[0] = "^XA";
             strZPL[1] = "^PR5,4";
             strZPL[2] = "^PW799";
@@ -136,22 +136,29 @@ namespace SolumInfraestructure.Service
             if (!String.IsNullOrEmpty(obj.Batchnum))
             {
                 strZPL[23] = "^FO140,370^BC^FD" + obj.Batchnum.Trim() + "^FS";
+                strZPL[24] = "^CF0,20";
+                strZPL[25] = "^FO30,350^FDFEC.VENC:^FS";
+                strZPL[26] = "^CF0,20";
+                strZPL[27] = "^FO140,350^FD" + obj.Expdate.ToString() + "^FS";
             }
             else {
                 strZPL[23] = "";
+                strZPL[24] = "";
+                strZPL[25] = "";
+                strZPL[26] = "";
+                strZPL[27] = "";
             }
-
-            strZPL[24] = "^FO30,480^FD" + obj.Expdate.ToString().Trim() + "^FS";
-            strZPL[25] = "^CF0,20";
-            strZPL[26]= "^FO290,480^FD" + obj.Docnum.Trim() + "^FS";
-            strZPL[27]= "^CF0,20";
-            strZPL[28] = "^FO560,480^FDUnd x Caja:^FS";
-            strZPL[29] = "^CFA,20";
-            strZPL[30]= "^FO660,480^FD" + uxc + "^FS";
+            strZPL[28] = "^CF0,20";
+            strZPL[29] = "^FO30,480^FD" + obj.Dateauditcreate.ToString() + "^FS";
+            strZPL[30]= "^FO320,480^FD" + obj.Docnum.Trim() + "^FS"; //strZPL[26]= "^FO290,480^FD" + obj.Docnum.Trim() + "^FS";
+            strZPL[31]= "^CF0,20";
+            strZPL[32] = "^FO560,480^FDUnd x Caja:^FS";
+            strZPL[33] = "^CFA,20";
+            strZPL[34]= "^FO660,480^FD" + uxc + "^FS";
             //strZPL[29] = "^PQ" + cont.ToString() + ",0,0,N,Y";
             //strZPL[29] = "^PQ1,1,0,N,Y";
-            strZPL[31] = "";
-            strZPL[32] = "^XZ";
+            strZPL[35] = "";
+            strZPL[36] = "^XZ";
             return strZPL;
         }
 

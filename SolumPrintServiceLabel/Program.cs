@@ -17,7 +17,7 @@ namespace SolumPrintServiceLabel
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+            Host.CreateDefaultBuilder(args).UseWindowsService()
                 .ConfigureLogging(options => options.AddFilter<EventLogLoggerProvider>(level => level >= LogLevel.Information))
                 .ConfigureServices((hostContext, services) =>
                 {
